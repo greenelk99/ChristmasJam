@@ -5,6 +5,7 @@ using UnityEngine;
 public class SnowBall : MonoBehaviour
 {
     [SerializeField] Rigidbody2D rb;
+    [SerializeField] float unHookTime = 0.15f;
 
     private bool mouseDown = false;
     void Start()
@@ -29,5 +30,13 @@ public class SnowBall : MonoBehaviour
     private void OnMouseUp()
     {
         mouseDown = false;
+        StartCoroutine(UnHook());
+    }
+
+    IEnumerator UnHook()
+    {
+        yield return new WaitForSeconds(unHookTime);
+
+        GetComponent<SpringJoint2D>().enabled = false;
     }
 }
