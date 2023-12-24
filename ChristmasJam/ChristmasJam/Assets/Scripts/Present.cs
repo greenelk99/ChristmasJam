@@ -21,7 +21,7 @@ public class Present : MonoBehaviour
     {
         if(collision.relativeVelocity.magnitude > maxVelocity)
         {
-            Invoke("Die", 0.1f);
+            Invoke("Die", 0.04f);
         }
     }
     private void Die()

@@ -5,7 +5,9 @@ using UnityEngine;
 public class SnowBall : MonoBehaviour
 {
     [SerializeField] Rigidbody2D rb;
+    [SerializeField] Rigidbody2D hook;
     [SerializeField] float unHookTime = 0.15f;
+    [SerializeField] float maxDragDistance;
 
     private bool mouseDown = false;
     void Start()
@@ -19,6 +21,7 @@ public class SnowBall : MonoBehaviour
         rb.isKinematic = mouseDown;
         if(mouseDown)
         {
+
             rb.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         }
     }
@@ -38,5 +41,6 @@ public class SnowBall : MonoBehaviour
         yield return new WaitForSeconds(unHookTime);
 
         GetComponent<SpringJoint2D>().enabled = false;
+        this.enabled = false;
     }
 }
