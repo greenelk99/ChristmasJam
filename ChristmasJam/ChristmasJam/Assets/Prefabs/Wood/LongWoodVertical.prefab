@@ -184,7 +184,7 @@ GameObject:
   - component: {fileID: 6169563235162152443}
   m_Layer: 0
   m_Name: LongWoodVertical
-  m_TagString: Untagged
+  m_TagString: Wood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -356,12 +356,12 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: f366fc99475c7cc4aa2a783e69f11fdd, type: 3}
+  m_audioClip: {fileID: 8300000, guid: ac23696065c30ef4e958f7aa06d9caf2, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
-  Mute: 1
+  Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
