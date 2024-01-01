@@ -171,4 +171,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb0175bfd682bce43a459774f01adfac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dieEffect: {fileID: 7633639955330397477, guid: b664cf66288c80447ab0a1e8297858bf, type: 3}
   maxVelocity: 5
