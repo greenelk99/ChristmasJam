@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SnowBall : MonoBehaviour
 {
@@ -49,10 +50,15 @@ public class SnowBall : MonoBehaviour
         yield return new WaitForSeconds(unHookTime);
         GetComponent<SpringJoint2D>().enabled = false;
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(0.5f);
         if (nextBall != null)
         {
             nextBall.SetActive(true);
+        }
+        else
+        {
+            yield return new WaitForSeconds(5);
+            SceneManager.LoadScene("SampleScene");
         }
         this.enabled = false;
     }
