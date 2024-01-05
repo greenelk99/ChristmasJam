@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Present : MonoBehaviour
 {
+    [SerializeField] AudioSource presentDestroyed;
     [SerializeField] float maxVelocity;
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,7 @@ public class Present : MonoBehaviour
     {
         if(collision.relativeVelocity.magnitude > maxVelocity)
         {
+            presentDestroyed.Play();
             Invoke("Die", 0.04f);
         }
     }

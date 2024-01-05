@@ -19,6 +19,9 @@ public class Anvil : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        anvilSound.Play();
+        if (collision.relativeVelocity.magnitude > 3)
+        {
+            anvilSound.Play();
+        }
     }
 }

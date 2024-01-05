@@ -304,7 +304,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.9, y: 0.97}
   m_EdgeRadius: 0
 --- !u!50 &1437692217650522419
 Rigidbody2D:
@@ -345,7 +345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9506eb8c2fa804140a9e33bbc4e92831, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WoodSound: {fileID: 6169563235162152443}
+  woodSound: {fileID: 6169563235162152443}
 --- !u!82 &6169563235162152443
 AudioSource:
   m_ObjectHideFlags: 0
@@ -361,7 +361,7 @@ AudioSource:
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
-  Mute: 1
+  Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128

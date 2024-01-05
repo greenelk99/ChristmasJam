@@ -8,8 +8,13 @@ public class SnowBall : MonoBehaviour
     [SerializeField] Rigidbody2D rb;
     [SerializeField] Rigidbody2D hook;
     [SerializeField] GameObject nextBall;
+    [SerializeField] AudioSource firstHitSound;
     [SerializeField] float unHookTime = 0.15f;
     [SerializeField] float maxDragDistance = 3f;
+    [SerializeField] string thisScene;
+
+    private bool isFirstHit = true;
+    private bool isUnHooked = false;
 
     private bool mouseDown = false;
     void Start()
@@ -51,6 +56,7 @@ public class SnowBall : MonoBehaviour
         GetComponent<SpringJoint2D>().enabled = false;
 
         yield return new WaitForSeconds(0.5f);
+        isUnHooked = true;
         if (nextBall != null)
         {
             nextBall.SetActive(true);
@@ -58,8 +64,17 @@ public class SnowBall : MonoBehaviour
         else
         {
             yield return new WaitForSeconds(5);
-            SceneManager.LoadScene("SampleScene");
+            SceneManager.LoadScene(thisScene);
         }
         this.enabled = false;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(isFirstHit && isUnHooked)
+        {
+            firstHitSound.Play();
+            isFirstHit = false;
+        }
     }
 }

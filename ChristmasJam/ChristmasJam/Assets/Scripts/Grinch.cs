@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Grinch : MonoBehaviour
 {
+    [SerializeField] string nextScene;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +28,7 @@ public class Grinch : MonoBehaviour
     private void Die()
     {
         Debug.Log("Grinch is dead!");
-        SceneManager.LoadScene("Level 2");
+        SceneManager.LoadScene(nextScene);
         Destroy(gameObject);
     }
 }

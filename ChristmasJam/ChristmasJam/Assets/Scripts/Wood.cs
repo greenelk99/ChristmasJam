@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Wood : MonoBehaviour
 {
-    [SerializeField] AudioSource WoodSound;
+    [SerializeField] AudioSource woodSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +19,16 @@ public class Wood : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        WoodSound.Play();
+        if (collision.relativeVelocity.magnitude > 8)
+        {
+            Destroy(gameObject);
+        }
+        else if (collision.relativeVelocity.magnitude > 3)
+        {
+            if(collision.gameObject.CompareTag("Wood"))
+            {
+                woodSound.Play();
+            }
+        }
     }
 }
