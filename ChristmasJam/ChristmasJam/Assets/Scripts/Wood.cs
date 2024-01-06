@@ -23,12 +23,16 @@ public class Wood : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        else if (collision.relativeVelocity.magnitude > 3)
+        if (collision.relativeVelocity.magnitude > 3)
         {
-            if(collision.gameObject.CompareTag("Wood"))
+            if (collision.gameObject.CompareTag("Wood"))
             {
                 woodSound.Play();
             }
+        }
+        if ((collision.relativeVelocity.magnitude > 3) && collision.gameObject.CompareTag("Anvil"))
+        {
+            Destroy(gameObject);
         }
     }
 }

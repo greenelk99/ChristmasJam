@@ -25,6 +25,11 @@ public class Present : MonoBehaviour
             presentDestroyed.Play();
             Invoke("Die", 0.04f);
         }
+        else if (collision.relativeVelocity.magnitude > 1 && collision.gameObject.CompareTag("Anvil"))
+        {
+            presentDestroyed.Play();
+            Invoke("Die", 0.04f);
+        }
     }
     private void Die()
     {
