@@ -19,7 +19,7 @@ public class Wood : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.relativeVelocity.magnitude > 8)
+        if (collision.relativeVelocity.magnitude > 7)
         {
             Destroy(gameObject);
         }

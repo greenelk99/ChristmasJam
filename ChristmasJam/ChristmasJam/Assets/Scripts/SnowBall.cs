@@ -19,7 +19,7 @@ public class SnowBall : MonoBehaviour
     private bool mouseDown = false;
     void Start()
     {
-        
+        isFirstHit = true;
     }
 
     // Update is called once per frame
@@ -54,9 +54,8 @@ public class SnowBall : MonoBehaviour
     {
         yield return new WaitForSeconds(unHookTime);
         GetComponent<SpringJoint2D>().enabled = false;
-
-        yield return new WaitForSeconds(0.5f);
         isUnHooked = true;
+        yield return new WaitForSeconds(0.5f);
         if (nextBall != null)
         {
             nextBall.SetActive(true);
@@ -71,7 +70,7 @@ public class SnowBall : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(isFirstHit && isUnHooked)
+        if (isFirstHit && isUnHooked)
         {
             firstHitSound.Play();
             isFirstHit = false;

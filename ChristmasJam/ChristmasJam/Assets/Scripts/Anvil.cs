@@ -5,21 +5,9 @@ using UnityEngine;
 public class Anvil : MonoBehaviour
 {
     [SerializeField] AudioSource anvilSound;
-    // Start is called before the first frame update
-    void Start()
+    private void OnCollisionStay2D(Collision2D collision)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.relativeVelocity.magnitude > 3)
+        if (collision.relativeVelocity.magnitude > 5)
         {
             anvilSound.Play();
         }
