@@ -5,6 +5,7 @@ using UnityEngine;
 public class SFXScript : MonoBehaviour
 {
     [SerializeField] AudioSource grinchDeath;
+    [SerializeField] AudioSource presentBreak;
 
     static bool isCreated = false;
 
@@ -34,7 +35,9 @@ public class SFXScript : MonoBehaviour
             case "grinchDeath":
                 grinchDeath.Play();
                 break;
-
+            case "presentBreak":
+                presentBreak.Play();
+                break;
         }
     }
 }

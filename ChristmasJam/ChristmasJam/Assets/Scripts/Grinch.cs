@@ -6,10 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class Grinch : MonoBehaviour
 {
-    public SFXScript SFX;
-
     [SerializeField] string nextScene;
 
+    private SFXScript SFX;
     private void Start()
     {
         SFX = GameObject.Find("SFX").GetComponent<SFXScript>();
@@ -33,6 +32,6 @@ public class Grinch : MonoBehaviour
 
         }
         SceneManager.LoadScene(nextScene);
-        //Destroy(gameObject);
+        Destroy(gameObject);
     }
 }

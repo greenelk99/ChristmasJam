@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Wood
   - Anvil
+  - Ground
   layers:
   - Default
   - TransparentFX

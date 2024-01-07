@@ -6,18 +6,13 @@ public class Present : MonoBehaviour
 {
     [SerializeField] AudioSource presentDestroyed;
     [SerializeField] float maxVelocity;
-    // Start is called before the first frame update
+
+    private SFXScript SFX;
+
     void Start()
     {
-        
+        SFX = GameObject.Find("SFX").GetComponent<SFXScript>();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.relativeVelocity.magnitude > maxVelocity)
@@ -33,6 +28,7 @@ public class Present : MonoBehaviour
     }
     private void Die()
     {
+        SFX.PlaySound("presentBreak");
         Destroy(gameObject);
     }
 }

@@ -9,6 +9,9 @@ public class SnowBall : MonoBehaviour
     [SerializeField] Rigidbody2D hook;
     [SerializeField] GameObject nextBall;
     [SerializeField] AudioSource firstHitSound;
+    [SerializeField] AudioSource snowBallCharge;
+    [SerializeField] AudioSource snowBallRelease;
+
     [SerializeField] float unHookTime = 0.15f;
     [SerializeField] float maxDragDistance = 3f;
     [SerializeField] string thisScene;
@@ -26,7 +29,7 @@ public class SnowBall : MonoBehaviour
     void Update()
     {
         rb.isKinematic = mouseDown;
-        if(mouseDown)
+        if(mouseDown && !isUnHooked)
         {
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             if (Vector3.Distance(mousePos, hook.position) > maxDragDistance)
@@ -42,6 +45,7 @@ public class SnowBall : MonoBehaviour
 
     private void OnMouseDown()
     {
+        snowBallCharge.Play();
         mouseDown = true;
     }
     private void OnMouseUp()
@@ -52,6 +56,7 @@ public class SnowBall : MonoBehaviour
 
     IEnumerator UnHook()
     {
+        snowBallRelease.Play();
         yield return new WaitForSeconds(unHookTime);
         GetComponent<SpringJoint2D>().enabled = false;
         isUnHooked = true;
