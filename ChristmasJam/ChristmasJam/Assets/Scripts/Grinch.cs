@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -24,7 +23,7 @@ public class Grinch : MonoBehaviour
             Die();
         }
     }
-    private void Die()
+    public void Die()
     {
         if (SFX != null)
         {

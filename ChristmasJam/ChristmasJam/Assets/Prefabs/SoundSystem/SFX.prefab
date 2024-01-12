@@ -46,8 +46,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c20833244aeae4d4cadf15fa6457e425, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  presentsAlive: 0
   grinchDeath: {fileID: -2601214251586194149}
   presentBreak: {fileID: 8659139174308418106}
+  minPresents: 3
 --- !u!82 &-2601214251586194149
 AudioSource:
   m_ObjectHideFlags: 0

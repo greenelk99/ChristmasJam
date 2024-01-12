@@ -1,17 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Present : MonoBehaviour
 {
+
     [SerializeField] AudioSource presentDestroyed;
     [SerializeField] float maxVelocity;
 
     private SFXScript SFX;
+    private static bool isResetted;
 
     void Start()
     {
         SFX = GameObject.Find("SFX").GetComponent<SFXScript>();
+        SFX.presentsAlive++;
+    }
+    private void Update()
+    {
+        if (isResetted)
+        {
+            isResetted = false;
+        }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -28,6 +39,7 @@ public class Present : MonoBehaviour
     }
     private void Die()
     {
+        SFX.presentsAlive--;
         SFX.PlaySound("presentBreak");
         Destroy(gameObject);
     }
